@@ -28,7 +28,7 @@ public class BluetoothOPPHelper {
     private final static String TAG = BluetoothOPPHelper.class.getSimpleName();
 
     private final UUID OPPUUID = UUID.fromString(("00001105-0000-1000-8000-00805f9b34fb"));
-    private final static String RC_BLUETOOTH_DEVICE_NAME = "C629";
+    private final static String RC_BLUETOOTH_DEVICE_NAME = "MyBlueDeviceName";
 
     /**
      * 使用 OBEX Object Push Profile 向对端推送文件
@@ -64,7 +64,7 @@ public class BluetoothOPPHelper {
         Set<BluetoothDevice> bondedDevices = BluetoothAdapter.getDefaultAdapter().getBondedDevices();
         bondedDevices.stream().forEach(dev -> Log.d(TAG, "device: " + dev.getName() + " -> " + dev.getAddress()));
         Optional<BluetoothDevice> deviceOptional = bondedDevices.stream()
-                .filter(dev -> dev.getName().contains(RC_BLUETOOTH_DEVICE_NAME))
+//                .filter(dev -> dev.getName().contains(RC_BLUETOOTH_DEVICE_NAME))
                 .findFirst();
         return deviceOptional.get();
     }
